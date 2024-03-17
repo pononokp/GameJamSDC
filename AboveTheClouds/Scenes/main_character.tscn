@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://be68k6vwdfsf5"]
+
+[ext_resource type="Script" path="res://Scenes/main_character.gd" id="1_1egl1"]
+[ext_resource type="Texture2D" uid="uid://xpdc47a8elcu" path="res://Mobile - Idle Apocalypse - Airship-Photoroom.png-Photoroom.png" id="1_ppmc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcn3p"]
+atlas = ExtResource("1_ppmc2")
+region = Rect2(0, 0, 194, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li6gk"]
+atlas = ExtResource("1_ppmc2")
+region = Rect2(194, 0, 194, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22rrm"]
+atlas = ExtResource("1_ppmc2")
+region = Rect2(388, 0, 194, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldvqv"]
+atlas = ExtResource("1_ppmc2")
+region = Rect2(582, 0, 194, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxc6m"]
+atlas = ExtResource("1_ppmc2")
+region = Rect2(776, 0, 194, 151)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khr8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcn3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li6gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22rrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldvqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxc6m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wajk6"]
+size = Vector2(171, 142)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1egl1")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_khr8u")
+autoplay = "default"
+frame_progress = 0.492283
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_wajk6")
