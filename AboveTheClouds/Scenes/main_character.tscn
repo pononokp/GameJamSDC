@@ -47,9 +47,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wajk6"]
-size = Vector2(171, 142)
+size = Vector2(102, 124)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(584, 339)
 script = ExtResource("1_1egl1")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -58,5 +59,15 @@ autoplay = "default"
 frame_progress = 0.492283
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 3)
+position = Vector2(5, -3)
 shape = SubResource("RectangleShape2D_wajk6")
+
+[node name="Follow_cam" type="Camera2D" parent="."]
+position = Vector2(0, -75)
+process_callback = 0
+limit_left = 0
+limit_top = -100000000
+limit_right = 1150
+limit_bottom = 650
+editor_draw_limits = true
+editor_draw_drag_margin = true

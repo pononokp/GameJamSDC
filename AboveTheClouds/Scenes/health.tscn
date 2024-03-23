@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpf7wtea4womk"]
+
+[ext_resource type="Script" path="res://Scenes/health.gd" id="1_451sr"]
+[ext_resource type="Texture2D" uid="uid://dqcktvbpil3hl" path="res://animated_items_outline.png" id="1_lb4ub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ee4b"]
+atlas = ExtResource("1_lb4ub")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vplwt"]
+atlas = ExtResource("1_lb4ub")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g3ku"]
+atlas = ExtResource("1_lb4ub")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gowyo"]
+atlas = ExtResource("1_lb4ub")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t5pf"]
+atlas = ExtResource("1_lb4ub")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ba70"]
+atlas = ExtResource("1_lb4ub")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxcca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ee4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vplwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g3ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gowyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t5pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ba70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmkam"]
+radius = 30.4631
+
+[node name="Health" type="Area2D"]
+script = ExtResource("1_451sr")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(153, 105)
+scale = Vector2(2.25, 2.1875)
+sprite_frames = SubResource("SpriteFrames_uxcca")
+autoplay = "default"
+frame_progress = 0.676057
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(151, 106)
+shape = SubResource("CircleShape2D_wmkam")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://claokbfew7hs3"]
+
+[ext_resource type="Script" path="res://Speed.gd" id="1_fcr1x"]
+[ext_resource type="Texture2D" uid="uid://dqcktvbpil3hl" path="res://animated_items_outline.png" id="2_cer5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2dgw"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qy3d"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljklu"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v25db"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bilk7"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26xf"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsibe"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(192, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5mg5"]
+atlas = ExtResource("2_cer5t")
+region = Rect2(224, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4jus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2dgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qy3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljklu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v25db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bilk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m26xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsibe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5mg5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifwxw"]
+radius = 28.6007
+
+[node name="Speed" type="Area2D"]
+script = ExtResource("1_fcr1x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(19, 18.5)
+scale = Vector2(2.1875, 2.15625)
+sprite_frames = SubResource("SpriteFrames_m4jus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 19)
+shape = SubResource("CircleShape2D_ifwxw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
